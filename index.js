@@ -1,46 +1,43 @@
-import { render } from 'react-dom'
-import React, { Component } from 'react'
-const redux = require('redux')
+const React  = require('react')
+const Redux = require('redux')
+const { render } = require('react-dom')
+
 const reducer = require('./reducer')
 
+const { Component }  = React
+const { createStore } = Redux
+
 const initialState = 0
-const { createStore } = redux
+
 const store = createStore(reducer, initialState)
 const { getState, dispatch, subscribe } = store
 
 class Counter extends Component {
-
-  constructor (props) {
-    super(props)
-  }
-
   render () {
-    const { props } = this
+    const { name, increment, decrement } = this.props
     return (
       <div>
-      {console.log(typeof getState().toString())}
-      <h1>Hey {props.name}</h1>
-      <p> {getState().toString()} </p>
-      <button onClick={props.onIncrement}> add </button>
-      <button onClick={props.onDecrement}> remove </button>
+        <h1>Hey { name }</h1>
+        <p> Value { getState().toString() } </p>
+        <button onClick={ button(increment) }>add</button>
+        <button onClick={ button(decrement) }>remove</button>
       </div>
     )
+    function button (type) {
+      return () =>
+      dispatch({
+        type
+      })
+    }
   }
-
 }
+
 const App = () => {
 render(<Counter name='Chris'
-            onIncrement={() =>
-                dispatch({
-                  type: 'INCREMENT'
-                  })
-                }
-                onDecrement={() =>
-                  dispatch({
-                    type: 'DECREMENT'
-                  })
-                }
+                increment='INCREMENT'
+                decrement='DECREMENT'
   />, document.querySelector('main'))
 }
+
 App()
 subscribe(App)
