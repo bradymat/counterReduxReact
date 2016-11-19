@@ -8,8 +8,8 @@ it's a real sweet app
 ### install
 
 ```
-git clone https://github.com/author/nah
-cd
+git clone https://github.com/bradymat/counterReduxReact
+cd counterReduxReact
 npm install
 ```
 
