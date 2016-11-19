@@ -1,5 +1,5 @@
 
-# nah
+# Counter
 
 it's a real sweet app
 
@@ -9,7 +9,7 @@ it's a real sweet app
 
 ```
 git clone https://github.com/author/nah
-cd 
+cd
 npm install
 ```
 
@@ -20,12 +20,6 @@ npm start
 ```
 
 browse to <http://localhost:9966/>.
-
-## test
-
-```
-npm test
-```
 
 ## deploy
 
